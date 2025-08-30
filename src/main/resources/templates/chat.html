@@ -1,0 +1,15 @@
+<!--chat.html-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<form th:action="@{/chat}" method="post">
+  Question:
+  <input type="text" name="prompt" placeholder="Type your question here..."
+         th:value="${prompt}" required />
+  <button type="submit">Answer</button>
+</form>
+<div th:if="${answer}">
+  <p>Answer: <span th:text="${answer}"></span></p>
+</div>
+</body>
+</html>
