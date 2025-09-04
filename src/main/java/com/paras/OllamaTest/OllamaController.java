@@ -15,13 +15,13 @@ public class OllamaController {
     }
 
     @GetMapping("/chat")
-    public String showAskMe() {
+    public String showResponse() {
         return "chat";
     }
 
-    // Receive Response from DeepSeek
+    // Receive Response from Model
     @PostMapping("/chat")
-    public String askMe(String prompt, Model model) {
+    public String resonse(String prompt, Model model) {
         String rawResponse = ollamaService.getResponse(prompt);
         String cleanResponse = rawResponse.replaceAll("(?s)<think>.*?</think>", "").trim();
         model.addAttribute("prompt", prompt);
